@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="369.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.louay.project.controllers.Controller">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="load" mnemonicParsing="false" onAction="#loadEvent" text="Load" />
+                        <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#saveEvent" text="Save" />
+                        <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#closeEvent" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem fx:id="addMenuItem" mnemonicParsing="false" onAction="#addFromMenu" text="Add" />
+                        <MenuItem fx:id="copyMenuItem" mnemonicParsing="false" onAction="#copyFromMenu" text="Copy" />
+                        <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#deleteEvent" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="364.0" prefWidth="1000.0" spacing="70.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Product List" textFill="#3bd4ba" textOverrun="CLIP" VBox.vgrow="ALWAYS">
+                                            <VBox.margin>
+                                                <Insets top="2.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="Perpetua Titling MT Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <ListView fx:id="productList" editable="true" onMouseClicked="#editProduct" onMousePressed="#showLabelProduct" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </VBox>
+                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Price List" textFill="#3bd4ba" VBox.vgrow="ALWAYS">
+                                            <VBox.margin>
+                                                <Insets top="2.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="Perpetua Titling MT Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <ListView fx:id="priceList" editable="true" onMouseClicked="#editPrice" onMouseMoved="#showLabelPrice" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets right="20.0" />
+                                    </HBox.margin>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="184.0" prefWidth="1000.0" spacing="22.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="127.0" prefWidth="1000.0" spacing="70.0">
+                                    <children>
+                                        <TextField fx:id="productText" minWidth="450.0" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets left="20.0" />
+                                            </HBox.margin></TextField>
+                                        <TextField fx:id="priceText" minWidth="450.0" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets right="20.0" />
+                                            </HBox.margin></TextField>
+                                    </children>
+                                </HBox>
+                                <Label fx:id="editLabel" alignment="CENTER" prefHeight="17.0" prefWidth="48.0" text="Show me Item" visible="false" VBox.vgrow="ALWAYS" />
+                                <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressAddButton" style="-fx-background-color: orange;" text="Add">
+                                    <effect>
+                                        <DropShadow />
+                                    </effect>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children></AnchorPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
